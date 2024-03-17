@@ -31,7 +31,7 @@ export const variety = [
 
 export const setAtomPrice = atom({
   key: "myPrice",
-  default: 180,
+  default: 50,
 });
 
 export const setAtomRating = atom({
@@ -51,7 +51,7 @@ export const setAtomCheckBox = atom({
 
 export const setAtomActive = atom({
   key: "myActive",
-  default: "Coming Soon",
+  default: "",
 });
 // Component
 const PopElement = () => {
@@ -79,6 +79,13 @@ const PopElement = () => {
   const toggleTab = (idx) => {
     setToggleState(idx);
   };
+  const resetFilters = () => {
+    setRadioActive("");
+    setPrice(50);
+    setTime(50);
+    setRating(5);
+    setCheckBox(new Array(variety.length).fill(false));
+  };
 
   return (
     <div className="container">
@@ -94,7 +101,7 @@ const PopElement = () => {
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
         >
-          Cuisines
+          Food Type
         </div>
         <div
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
@@ -179,15 +186,15 @@ const PopElement = () => {
             <input
               onChange={(e) => setPrice(e.target.value)}
               type="range"
-              min="20"
-              max="180"
-              step="20"
+              min="10"
+              max="50"
+              step="5"
               value={price}
               class="myslider"
               id="sliderRange"
             />
             <p>
-              Price: <span id="demo">{price + "₹"}</span>
+              Price: <span id="demo">{price + "$"}</span>
             </p>
           </div>
         </div>
@@ -212,6 +219,9 @@ const PopElement = () => {
           </div>
         </div>
       </div>
+      <button className="reset-button" onClick={resetFilters}>
+        Reset Filters
+      </button>
     </div>
   );
 };

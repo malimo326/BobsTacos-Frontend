@@ -11,10 +11,9 @@ img{
 
 .Main-text{
     position: absolute;
-    top: 70%;
+    top: 85%;
     left: 10%;
     width: 45%;
-    background-color: rgb(255, 181, 44);
     border-radius: 5px;
     padding: 0px 25px;
 }
@@ -22,7 +21,6 @@ img{
     font-size: 2.8rem;
     font-weight: 600;
     background: #222;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .Main-text p{
@@ -54,5 +52,4 @@ img{
     
 }
 
-/*Animation*/
-
+ 

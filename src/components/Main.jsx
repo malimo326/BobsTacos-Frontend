@@ -1,21 +1,20 @@
 import React from 'react';
 import '../components/MainStyles.css';
 import { Link } from 'react-router-dom';
-import {bobs_tacos} from "../assests/bobs_taco.jpg"
+
 
 const Main = (props) => {
   return (
     <div className="container-img">
      
          <div className="Main-text">
-            <h1>{props.title}</h1> 
-            <p>{props.text}</p>
+           
             <Link to="/menu" className='btnclass'>
               <a href={props.url} className={props.btnclass}>{props.buttonText}    <i class="fa-solid fa-arrow-right"></i></a>
             </Link>
             
          </div>
-         <img src= {props.MainImg} alt="ss" />
+         <img className='cover' src= {props.MainImg} alt="ss" />
     </div>
   )
 }

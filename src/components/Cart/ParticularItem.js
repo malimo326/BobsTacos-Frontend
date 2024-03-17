@@ -70,7 +70,7 @@ const ParticularItem = () => {
                 <div className="true-container">
                   <div className="detail-container">
                     <h1>{item.name}</h1>
-                    <h4>{"Price: " + item.price + "₹"}</h4>
+                    <h4>{"Price: " + item.price + "$"}</h4>
                     <div className="detail-container-1">
                       <h5>{item.foodType}</h5>
                       <div className="Rating-container">
