@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../filtertab/popElementstyle.css";
 import { atom, useRecoilState } from "recoil";
+import { restaurant } from "../../../Lists";
 
 export const variety = [
   {
     id: "1",
-    type: "South-Indian Food",
+    type: "Burger",
   },
   {
     id: "2",
-    type: "Rajasthani Food",
+    type: "Breakfast meals",
   },
   {
     id: "3",
-    type: "American Food",
+    type: "Drinks",
   },
   {
     id: "4",
-    type: "Indian Food",
+    type: "Pizza",
   },
   {
     id: "5",
-    type: "Italian Food",
+    type: "Sushi",
   },
   {
     id: "6",
-    type: "Chinese Food",
+    type: "Breakfast",
   },
 ];
 
@@ -61,6 +62,14 @@ const PopElement = () => {
   const [time, setTime] = useRecoilState(setAtomTime);
   const [rating, setRating] = useRecoilState(setAtomRating);
   const [checkBox, setCheckBox] = useRecoilState(setAtomCheckBox);
+  const [filteredItems, setFilteredItems] = useState([])
+
+  useEffect(() => {
+    const filtered = restaurant.filter(item =>
+      checkBox.some((checked, index) => checked && variety[index].type === item.foodType)
+    );
+    setFilteredItems(filtered);
+  }, [checkBox]);
 
   // console.log(radioActive);
 
@@ -131,7 +140,7 @@ const PopElement = () => {
                 name="btn"
                 id="first"
                 onClick={() => setRadioActive("Popularity") /*radioTab(1)*/}
-              />{" "}
+              />{""}
               Popularity
             </h3>
           </div>
@@ -205,9 +214,9 @@ const PopElement = () => {
             <input
               onChange={(e) => setTime(e.target.value)}
               type="range"
-              min="20"
+              min="5"
               max="50"
-              step="5"
+              step="1"
               value={time}
               class="myslider"
               id="sliderRange"
@@ -222,7 +231,20 @@ const PopElement = () => {
       <button className="reset-button" onClick={resetFilters}>
         Reset Filters
       </button>
+      <div className={toggleState === 2 ? "content active-content" : "content"}>
+        
+        {filteredItems.map(item => (
+          <div key={item.id}>
+            <h3>{item.name}</h3>
+            <p>Food Type: {item.foodType}</p>
+            <p>Price: {item.price}</p>
+            <p>Rating: {item.rating}</p>
+            {/* Add more item details as needed */}
+          </div>
+        ))}
+      </div>
     </div>
+    
   );
 };
 

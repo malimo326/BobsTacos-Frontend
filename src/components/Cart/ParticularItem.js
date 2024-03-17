@@ -136,11 +136,3 @@ const ParticularItem = () => {
 };
 
 export default ParticularItem;
-
-{/* <div className="delivery-item-title">{item.name}</div>
-                    <img src={item.image} className="delivery-item-image" alt={item.name}/> */}
-                    // {item.foodType === current?  
-                    //   <>
-                    //     
-                    //   </>:
-                    // <></>}

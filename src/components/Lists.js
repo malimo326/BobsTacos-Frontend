@@ -74,7 +74,7 @@ export const restaurant = [
         "foodType": "Burger",
         "name": "Kids Menu",
         "price": 15,
-        "rating": 4,
+        "rating": 3,
         "image": "https://wallpaperaccess.com/full/512858.jpg",
         "deliveryTime" : 30,
         "description": "Our Kids Menu is designed to delight our youngest patrons with flavors they'll adore. Treat your little ones to our mini-sized burger, packed with the same irresistible taste in a size that's just right for them. It's a meal that brings smiles to every child's face, making dining a playful and enjoyable experience."
@@ -124,7 +124,7 @@ export const restaurant = [
         "foodType": "Breakfast",
         "name": "Wok",
         "price": 45,
-        "rating": 4,
+        "rating": 3,
         "image": "https://wallpaperaccess.com/full/1306317.jpg",
         "deliveryTime" : 10,
         "description": "Indulge in our Daily Specials, where every bite is a burst of flavor. Our signature burger is crispy on the outside and succulently juicy on the inside. Served with a delightful array of chutneys, it's the perfect choice for your craving."
@@ -144,7 +144,7 @@ export const restaurant = [
         "foodType": "Breakfast",
         "name": "Omlett",
         "price": 15,
-        "rating": 4,
+        "rating": 3,
         "image": " https://wallpaperaccess.com/full/1770147.jpg",
         "deliveryTime" : 10,
         "description": "Indulge in our Daily Specials, where every bite is a burst of flavor. Our signature burger is crispy on the outside and succulently juicy on the inside. Served with a delightful array of chutneys, it's the perfect choice for your craving."
