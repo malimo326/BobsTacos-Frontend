@@ -1,10 +1,10 @@
 import React from 'react';
 import '../filterItems/FilterItem.css';
 import Popup from 'reactjs-popup';
-import PopElement, { setAtomActive, setAtomCheckBox, variety } from '../filterItems/filtertab/PopElement';
+import PopElement, { setAtomActive, setAtomCheckBox } from '../filterItems/filtertab/PopElement';
 import { CiFilter } from "react-icons/ci";
 import { setAtomTime, setAtomRating, setAtomPrice } from '../filterItems/filtertab/PopElement';
-import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import { useRecoilValue, useResetRecoilState } from "recoil";
 
 
 const FilterItem = ({filter}) => {

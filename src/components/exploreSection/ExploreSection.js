@@ -7,7 +7,6 @@ import {
   setAtomPrice,
   setAtomRating,
   setAtomTime,
-  variety,
 } from "../Filters/filterItems/filtertab/PopElement";
 import { Link } from "react-router-dom";
 
