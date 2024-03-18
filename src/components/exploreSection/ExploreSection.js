@@ -57,7 +57,11 @@ const ExploreSection = () => {
               />
             </Link>
             {restaurant.deliveryTime <= coilTime && (
-              <div className="delivery-time">{restaurant.deliveryTime + "min"}</div>
+              <div className="delivery-time">{restaurant.deliveryTime + "min"}
+                    <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}>Favorite</button>
+          <button className="add-to-wishlist-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
+              </div>
+              
             )}
           </div>
           <div className="res-name">{restaurant.name}</div>
@@ -73,8 +77,6 @@ const ExploreSection = () => {
               </div>
             )}
           </div>
-          <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}>Add to Wishlist</button>
-          <button className="add-to-wishlist-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
             
         </div>
       );
