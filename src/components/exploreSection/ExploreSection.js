@@ -9,9 +9,14 @@ import {
   setAtomTime,
 } from "../Filters/filterItems/filtertab/PopElement";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AddCart, AddWishlist } from "../redux/ShoppingCart";
+import { toast } from "react-hot-toast";
+
 
 const ExploreSection = () => {
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
   const exploreItem = restaurant.filter((item) =>
     search.toLowerCase() === "" ? item : item.name.toLowerCase().includes(search)
   );
@@ -21,6 +26,14 @@ const ExploreSection = () => {
   const coilTime = useRecoilValue(setAtomTime);
   const coilCheckbox = useRecoilValue(setAtomCheckBox);
 
+  const addToWish = (item) => {
+    dispatch(AddWishlist(item));
+    toast.success("Item added in Wishlist!");
+  };
+  const addToCart = (item) => {
+    dispatch(AddCart(item));
+    toast.success("Item added in cart!");
+  };
   const renderRestaurant = (restaurant) => {
     const meetsFilters =
       restaurant.rating <= coilRating &&
@@ -60,6 +73,9 @@ const ExploreSection = () => {
               </div>
             )}
           </div>
+          <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}>Add to Wishlist</button>
+          <button className="add-to-wishlist-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
+            
         </div>
       );
     }
