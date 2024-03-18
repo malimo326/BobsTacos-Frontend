@@ -6,7 +6,7 @@ import { getTotals, removeCart} from "../components/redux/ShoppingCart";
 import { toast } from "react-hot-toast";
 import { decreaseCart, AddCart } from "../components/redux/ShoppingCart";
 
-const Cart = () => {
+const Cart = ({ showNavbar } , { showTextContainer }) => {
   const { cart } = useSelector((item) => item.user);
   const dispatch = useDispatch();
 
@@ -37,14 +37,15 @@ const Cart = () => {
   };
   return (
     <div>
-      <Navbar />
-      <div className="text-container">
+      {!showNavbar && <Navbar />}
+      {showTextContainer && (
+      <div  className="text-container">
         <h1 className="text">Cart Section</h1>
         <div className="btn-container">
           <i className="fa-solid fa-arrow-left" onClick={handleclick}>Prev</i>
           <i class="fa-solid fa-arrow-right" onClick={handleOrder}>Next</i>
         </div>
-      </div>
+      </div>)}
       {cart.length === 0 ? (
         <div>
           <h1 className="text">No Item in cart!</h1>

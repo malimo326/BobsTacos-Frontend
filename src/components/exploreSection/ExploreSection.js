@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AddCart, AddWishlist } from "../redux/ShoppingCart";
 import { toast } from "react-hot-toast";
+import Cart from "../../routes/Cart";
 
 
 const ExploreSection = () => {
@@ -89,6 +90,9 @@ const ExploreSection = () => {
 
   return (
     <div className="max-width explore-section">
+      <div className="cart-container">
+        <Cart showNavbar={true} showTextContainer={false}/>
+      </div>
       <div className="collection-title">
         <div className="collection-search">
           <h1>--- BOBS TACOS MENY ---</h1>
@@ -104,6 +108,7 @@ const ExploreSection = () => {
         </div>
         <div className="explore-grid">{exploreItem.map(renderRestaurant)}</div>
       </div>
+      
     </div>
   );
 };
