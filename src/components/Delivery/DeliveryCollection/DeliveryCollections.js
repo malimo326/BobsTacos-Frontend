@@ -7,41 +7,46 @@ import DeliveryItem from './DeliveryItem/deliveryItem';
 
 const deliveryItem = [
     {
-        id: 41,
-        title: "Italian Food",
-        cover: "https://i.ndtvimg.com/i/2017-09/margherita-pizza_600x300_51506418004.jpg"
-    },
-    {
         id: 1,
-        title: "Indian Food",
-        cover: "https://wallpaperaccess.com/full/2069188.jpg"
+        title: "Daily Specials",
+        cover: "https://wallpaperaccess.com/thumb/7629209.jpg"
     },
     {
-        id: 9,
-        title: "South Indian Food",
-        cover: "https://www.chefspencil.com/wp-content/uploads/Dosa-1.jpg.webp"
+        id: 2,
+        title: "Family Meal Deals",
+        cover: "https://wallpaperaccess.com/thumb/165212.jpg"
     },
     {
-        id: 16,
-        title: "Rajasthani Food", 
-        cover: "https://wp.scoopwhoop.com/wp-content/uploads/2014/09/5677315b6e510a6f3a759a81_1.jpg"
+        id: 3,
+        title: "Drinks Menu",
+        cover: "https://wallpaperaccess.com/thumb/235905.jpg"
     },
     {
-        id: 32,
-        title:  "American Food",
-        cover: "https://i.ndtvimg.com/i/2015-07/burger-625_625x350_51435922877.jpg"
+        id: 4,
+        title: "Kids Meal", 
+        cover: "https://wallpaperaccess.com/full/112670.jpg"
     },
     {
-        id: 26,
-        title: "Chinese Food",
-        cover: "https://www.hotelmousai.com/blog/wp-content/uploads/2021/12/Chow-Mein.jpg"
+        id: 5,
+        title:  "Sushi Food",
+        cover: "https://wallpaperaccess.com/full/286305.jpg"
     },
+    {
+        id: 6,
+        title: "Breakfast Food",
+        cover: "https://wallpaperaccess.com/thumb/2851613.jpg"
+    },
+    {
+        id: 7,
+        title: "Pizza",
+        cover: "https://wallpaperaccess.com/thumb/424487.jpg"
+    }
 ]
 
 const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -52,9 +57,7 @@ const DeliveryCollections = () => {
     <div className='delivery-collection'>
          <div className='max-width'>
             <div className='collection-title'>
-                <h1>Our dishes </h1>
-
-                <br></br>
+                <h1>Menu & Spesials </h1>
                 <Slider {...settings}>
                     {
                         deliveryItem.map((item)=>{

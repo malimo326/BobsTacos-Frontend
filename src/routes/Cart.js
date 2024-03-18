@@ -57,7 +57,7 @@ const Cart = () => {
             className="cart-image"
           />
           <h1 className="cart-text">{food_cart.name}</h1>
-          <h1 className="cart-text">{"Price: " + food_cart.price + "₹"}</h1>
+          <h1 className="cart-text">{"Price: " + food_cart.price + "$"}</h1>
           <div className="button-s">
             <div className="decrease-btn">
               <button className="btn" onClick={() => handleChangeDecrease(food_cart)}>
@@ -79,7 +79,7 @@ const Cart = () => {
           </button>
           <div className="quantity-no">
             <h1 className="cart-text">
-              {"Total: " + ( food_cart.price * food_cart.quantity ) + "₹"}
+              {"Total: " + ( food_cart.price * food_cart.quantity ) + "$"}
             </h1>
           </div>
         </div>

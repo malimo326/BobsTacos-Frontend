@@ -70,7 +70,7 @@ const ParticularItem = () => {
                 <div className="true-container">
                   <div className="detail-container">
                     <h1>{item.name}</h1>
-                    <h4>{"Price: " + item.price + "₹"}</h4>
+                    <h4>{"Price: " + item.price + "$"}</h4>
                     <div className="detail-container-1">
                       <h5>{item.foodType}</h5>
                       <div className="Rating-container">
@@ -136,11 +136,3 @@ const ParticularItem = () => {
 };
 
 export default ParticularItem;
-
-{/* <div className="delivery-item-title">{item.name}</div>
-                    <img src={item.image} className="delivery-item-image" alt={item.name}/> */}
-                    // {item.foodType === current?  
-                    //   <>
-                    //     
-                    //   </>:
-                    // <></>}

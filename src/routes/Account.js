@@ -61,7 +61,7 @@ const Account = () => {
               <button className="cart-btn" onClick={() => handleRemoveWish(food_cart)}><i className="fa-solid fa-trash"></i></button>
               <div className="food-name">{food_cart.name}</div>
               <div className="rat-pir">
-                <div className="approx-price">{food_cart.price + "₹"}</div>
+                <div className="approx-price">{food_cart.price + "$"}</div>
                   
               </div>
             </div>

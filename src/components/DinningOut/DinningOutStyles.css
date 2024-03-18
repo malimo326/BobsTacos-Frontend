@@ -1,0 +1,11 @@
+.absolute-center h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+.absolute-center img.dissert {
+    width: 200px;
+    height: auto;
+    margin: 20px;
+  }
+  

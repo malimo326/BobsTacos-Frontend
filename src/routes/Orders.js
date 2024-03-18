@@ -76,9 +76,9 @@ const Orders = () => {
                         />
                         <h3>{orders.name}</h3>
                         <h3>{orders.quantity}</h3>
-                        <h3>{orders.price + "₹"}</h3>
+                        <h3>{orders.price + "$"}</h3>
                         <h3>
-                          {"Total: " + orders.price * orders.quantity + "₹"}
+                          {"Total: " + orders.price * orders.quantity + "$"}
                         </h3>
                       </div>
                     </li>
@@ -91,15 +91,15 @@ const Orders = () => {
         <div className="payment-container">
             <h2 className="text-t">Your Bill</h2>
             <div className="total-container">
-              <h2 className="totl">SubTotal:- {amount+"₹"}</h2>
-              <h2 className="totl">Tax:- {amount*2/100+"₹"}</h2>  
-              <h2 className="totl">Grand Total:- {amount+(amount*2/100)+"₹"}</h2>
+              <h2 className="totl">SubTotal: {amount+"$"}</h2>
+              <h2 className="totl">Tax: {amount*2/100+"$"}</h2>  
+              <h2 className="totl">Grand Total: {amount+(amount*2/100)+"$"}</h2>
             </div>
             <div className="payment">
                 <h2 className="text-h2">Payment Method</h2>
                 <input type="radio" className="radio-btn" value="1" name="2"/><label className="label">Cash On delivery</label>
                 <input type="radio" className="radio-btn" value="1" name="2"/><label className="label">Debit Card</label>
-                <input type="radio" className="radio-btn" value="1" name="2"/><label className="label">UPI Payment</label>
+                <input type="radio" className="radio-btn" value="1" name="2"/><label className="label">PayPal Payment</label>
             </div>
             <div className="payment">
                 <h2 className="text">Your Adress</h2>
