@@ -7,6 +7,7 @@ import {
   setAtomPrice,
   setAtomRating,
   setAtomTime,
+  variety,
 } from "../Filters/filterItems/filtertab/PopElement";
 import { Link } from "react-router-dom";
 
@@ -66,7 +67,8 @@ const ExploreSection = () => {
     return null;
   };
 
-  const filters = ["South", "Rajasthani", "American", "Indian", "Italian", "Chinese"];
+  //const filters = restaurant.filter((_, index) => coilCheckbox[index]);
+  const filters = ["Burger", "Drinks", "Sushi", "Pizza", "Breakfast"];
 
   return (
     <div className="max-width explore-section">

@@ -61,8 +61,8 @@ export const restaurant = [
     },
     {
         "id": 7,
-        "foodType": "Breakfast meals",
-        "name": "Breakfast",
+        "foodType": "Breakfast",
+        "name": "Breakfast  Burrito",
         "price": 5,
         "rating": 4,
         "image": "https://wallpaperaccess.com/full/4518250.jpg",
@@ -144,7 +144,7 @@ export const restaurant = [
         "foodType": "Breakfast",
         "name": "Omlett",
         "price": 15,
-        "rating": 3,
+        "rating": 2,
         "image": " https://wallpaperaccess.com/full/1770147.jpg",
         "deliveryTime" : 10,
         "description": "Indulge in our Daily Specials, where every bite is a burst of flavor. Our signature burger is crispy on the outside and succulently juicy on the inside. Served with a delightful array of chutneys, it's the perfect choice for your craving."
