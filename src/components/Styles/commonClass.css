@@ -33,7 +33,7 @@
     align-items: start;
     justify-content: space-between;
     border: 1px solid var(--filter-text);
-    width: 75%;
+    width: 80%;
     padding: 12px;
     margin: auto;
 }
@@ -56,10 +56,15 @@
     font-size: 20px;
     margin-top: 25px;
 }
+.container-cart{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(126, 126, 116);
+}
 .text-container{
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 2px;
     width: 80%;
     margin: auto;
     border-radius: 10px;
@@ -204,7 +209,7 @@
     align-items: center;
     justify-content: center;
     width: 40%;
-    background-color: rgb(17, 16, 14);
+    background-color: rgb(88, 88, 81);
 }
 .payment{
     padding: 12px;
@@ -314,7 +319,7 @@
     padding: 25px;
 }
 .collected-item{
-background-color: rgb(24, 21, 17);
+    background-color: rgb(126, 126, 116);
     height: 80vh;
 }
 .item-in-order{

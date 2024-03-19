@@ -3,8 +3,10 @@ import Navbar from '../header/Navbar'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 const Last = () => {
     const navigate = useNavigate();
+
     const handleBack = () => {
     navigate("/orders");
   };
@@ -24,7 +26,7 @@ const Last = () => {
                 <div className='large-container'>
                     <i className="fa-solid fa-arrow-left" onClick={handleBack}>Back</i>
                     <div>
-                    <h1>Grand Total: {amount + "$"}</h1>
+                    <h1>Grand Total: {amount+(amount*2/100) + "$"}</h1>
                     <button className='place-btn' onClick={handlePlace}>{name}</button>
                     </div>
                 </div>

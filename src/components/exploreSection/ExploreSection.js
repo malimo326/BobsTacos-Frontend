@@ -91,7 +91,7 @@ const ExploreSection = () => {
   return (
     <div className="max-width explore-section">
       <div className="cart-container">
-        <Cart showNavbar={true} showTextContainer={false}/>
+        <Cart showTextContainer={true} showNavbar={true} />
       </div>
       <div className="collection-title">
         <div className="collection-search">
