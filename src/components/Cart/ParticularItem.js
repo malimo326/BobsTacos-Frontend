@@ -109,7 +109,7 @@ const ParticularItem = () => {
           <div className="collection-title">
             <div className="collection">
             <h1>{"More " + current}</h1>
-            <p>If Eat Feels You Happy So why are you waiting for??</p>
+
             </div>
             <br></br>
           </div>

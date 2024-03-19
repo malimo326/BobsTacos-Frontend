@@ -9,9 +9,15 @@ import {
   setAtomTime,
 } from "../Filters/filterItems/filtertab/PopElement";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AddCart, AddWishlist } from "../redux/ShoppingCart";
+import { toast } from "react-hot-toast";
+import Cart from "../../routes/Cart";
+
 
 const ExploreSection = () => {
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
   const exploreItem = restaurant.filter((item) =>
     search.toLowerCase() === "" ? item : item.name.toLowerCase().includes(search)
   );
@@ -21,6 +27,14 @@ const ExploreSection = () => {
   const coilTime = useRecoilValue(setAtomTime);
   const coilCheckbox = useRecoilValue(setAtomCheckBox);
 
+  const addToWish = (item) => {
+    dispatch(AddWishlist(item));
+    toast.success("Item added in Wishlist!");
+  };
+  const addToCart = (item) => {
+    dispatch(AddCart(item));
+    toast.success("Item added in cart!");
+  };
   const renderRestaurant = (restaurant) => {
     const meetsFilters =
       restaurant.rating <= coilRating &&
@@ -44,7 +58,11 @@ const ExploreSection = () => {
               />
             </Link>
             {restaurant.deliveryTime <= coilTime && (
-              <div className="delivery-time">{restaurant.deliveryTime + "min"}</div>
+              <div className="delivery-time">{restaurant.deliveryTime + "min"}
+                    <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}>Favorite</button>
+          <button className="add-to-wishlist-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
+              </div>
+              
             )}
           </div>
           <div className="res-name">{restaurant.name}</div>
@@ -60,16 +78,21 @@ const ExploreSection = () => {
               </div>
             )}
           </div>
+            
         </div>
       );
     }
     return null;
   };
 
-  const filters = ["South", "Rajasthani", "American", "Indian", "Italian", "Chinese"];
+  //const filters = restaurant.filter((_, index) => coilCheckbox[index]);
+  const filters = ["Burger", "Drinks", "Sushi", "Pizza", "Breakfast"];
 
   return (
     <div className="max-width explore-section">
+      <div className="cart-container">
+        <Cart showNavbar={true} showTextContainer={false}/>
+      </div>
       <div className="collection-title">
         <div className="collection-search">
           <h1>--- BOBS TACOS MENY ---</h1>
@@ -85,6 +108,7 @@ const ExploreSection = () => {
         </div>
         <div className="explore-grid">{exploreItem.map(renderRestaurant)}</div>
       </div>
+      
     </div>
   );
 };

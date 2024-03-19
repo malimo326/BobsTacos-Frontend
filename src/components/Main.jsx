@@ -14,7 +14,7 @@ const Main = (props) => {
             </Link>
             
          </div>
-         <img className='cover' src= {props.MainImg} alt="ss" />
+         <img className='cover' src= {props.MainImg} alt="BobsTacosStaion" />
     </div>
   )
 }
