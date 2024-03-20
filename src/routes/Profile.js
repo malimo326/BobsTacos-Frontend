@@ -1,83 +1,90 @@
-import React from "react";
-import Navbar from "../components/header/Navbar";
-import { Link } from "react-router-dom";
-
-
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
-import Logout from "./Logout";
-import Login from "./Login";
-import Register from "./Register";
+import Navbar from "../components/header/Navbar";
+import { addMenuItem, deleteMenuItem, updateMenuItem } from "../api";
 
 const Profile = () => {
-  const firstName = sessionStorage.getItem('firstName');
-  const lastName = sessionStorage.getItem('lastName');
-  const ID = sessionStorage.getItem('userId')
-  const { wish } = useSelector((state) => state.user);
-  console.log("User ID:", ID); // Log user ID
-  console.log("first Name:", firstName); // Log user ID
+  const [newMenuItemData, setNewMenuItemData] = useState({
+    name: "",
+    price: 0,
+  });
+  const [deleteMenuItemId, setDeleteMenuItemId] = useState(""); // State to store the ID of the menu item to delete
 
-  const renderProfileContent = () => {
-    if (firstName && lastName) {
-        return (
-            <div  className="">
-                <Navbar />
-                <img src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" alt="profile" className="profile" />
-            <h1 className="user">{firstName} {lastName} </h1>
-            <div className="wish-container">
-                <h1 className="h1-text">Your Wishlist</h1>
-                <div className="main">
-                {wish.length === 0 ? (
-                    <div>
-                    <h1 className="text">Wishlist is empty!</h1>
-                    </div>
-                ) : (
-                    wish?.map((food_cart) => (
-                    <div className="under-container" key={food_cart.id}>
-                        <div className="explore-card-cover">
-                        <Link to={`/item/${food_cart.id}`}>
-                            <img src={food_cart.image} alt={food_cart.name} className="explore-card-image"/>
-                        </Link>
-                        </div>
-                        <div className="food-name">{food_cart.name}</div>
-                        <div className="rat-pir">
-                        <div className="approx-price">{food_cart.price + "$"}</div>
-                        </div>
-                    </div>
-                    ))
-                )}
-                </div>
-            </div>
-            <Logout />
-            </div>
-            
-        );
-        } else {
-        return (
-            <>
-            <Navbar />
-            <Login />
-            <Register />
-            </>
-        );
-        }
-    };
+  const { role } = useSelector((state) => state.user); // Assuming user's role is stored in Redux state
 
-    return (
-        <>
-       
+  const handleAddMenuItem = async () => {
+    try {
+      const addedMenuItem = await addMenuItem(newMenuItemData);
+      toast.success("Menu Item added successfully!");
+      // Optionally, you can update state or perform any additional actions upon successful addition
+    } catch (error) {
+      toast.error("Error adding menu item");
+    }
+  };
+
+  const handleUpdateMenuItem = async (menuItemId, updatedMenuItemData) => {
+    try {
+      const updatedMenuItem = await updateMenuItem(menuItemId, updatedMenuItemData);
+      toast.success("Menu Item updated successfully!");
+      // Optionally, you can update state or perform any additional actions upon successful update
+    } catch (error) {
+      toast.error("Error updating menu item");
+    }
+  };
+
+  const handleDeleteMenuItem = async () => {
+    try {
+      await deleteMenuItem(deleteMenuItemId);
+      toast.success("Menu Item deleted successfully!");
+      // Optionally, you can update state or perform any additional actions upon successful deletion
+    } catch (error) {
+      toast.error("Error deleting menu item");
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <div className="profile">
+        <h1>Welcome!</h1>
+        {/* Conditionally render buttons based on user role */}
+        {role === "Admin" && (
+          <>
+            <h2>Add New Menu Item</h2>
+            <input
+              type="text"
+              placeholder="Name"
+              value={newMenuItemData.name}
+              onChange={(e) =>
+                setNewMenuItemData({ ...newMenuItemData, name: e.target.value })
+              }
+            />
+            <input
+              type="number"
+              placeholder="Price"
+              value={newMenuItemData.price}
+              onChange={(e) =>
+                setNewMenuItemData({ ...newMenuItemData, price: e.target.value })
+              }
+            />
+            <button onClick={handleAddMenuItem}>Add Menu Item</button>
+          </>
+        )}
+        {/* Add input field and button for deleting menu item */}
         <div>
-            <div className="only-profile">
-            
-            <div>
-            {renderProfileContent()}
-                
-            </div>
-            
-            </div>
+          <h2>Delete Menu Item</h2>
+          <input
+            type="text"
+            placeholder="Enter Menu Item ID to delete"
+            value={deleteMenuItemId}
+            onChange={(e) => setDeleteMenuItemId(e.target.value)}
+          />
+          <button onClick={handleDeleteMenuItem}>Delete Menu Item</button>
         </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Profile;

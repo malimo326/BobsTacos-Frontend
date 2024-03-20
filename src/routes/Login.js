@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Logout from "./Logout";
+import { useDispatch } from "react-redux";
+import { setLoggedInStatus } from "../components/redux/ShoppingCart";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // Clear sessionStorage
@@ -40,7 +43,16 @@ const Login = () => {
           sessionStorage.setItem('firstName', resp.firstName);
           sessionStorage.setItem('lastName', resp.lastName);
           sessionStorage.setItem('userId', resp.id); // Store the user ID
-          navigate('/account');
+          sessionStorage.setItem('Role', resp.role); 
+  
+          dispatch(setLoggedInStatus(true)); 
+  
+          // Move navigation logic inside this block
+          if (resp.role === 'Admin') {
+            navigate("/account2");
+          } else {
+            navigate("/account");
+          }
         } else {
           toast.error('Please enter valid credentials');
         }
@@ -50,7 +62,6 @@ const Login = () => {
       });
     }
   };
-
   const validate = () => {
     let result = true;
     if (!email) {
