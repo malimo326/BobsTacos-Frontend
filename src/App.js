@@ -18,6 +18,7 @@ import Logout from './routes/Logout';
 import Register from './routes/Register';
 import Profile from './routes/Profile';
 import AdminProfile from './routes/AdminProfile';
+import Account from './routes/Account';
 
 
 function App() {

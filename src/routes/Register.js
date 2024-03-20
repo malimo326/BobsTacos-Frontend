@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"; 
+import Navbar from "../components/header/Navbar";
 
 const Register = () => {
     const [firstName, setFristName] = useState('');
@@ -47,6 +48,7 @@ const Register = () => {
 
     return (
         <div className="row">
+     <Navbar />
             <div className="offset-lg-3 col-lg-6" style={{ marginTop: '100px' }}>
                 <form onSubmit={handleRegister} className="container">
                     <div className="card">
