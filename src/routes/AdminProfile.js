@@ -1,90 +1,105 @@
-/* eslint-disable no-undef */
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
-import Navbar from "../components/header/Navbar";
-import { addMenuItem, deleteMenuItem, updateMenuItem } from "../api";
+import React, { useState, useEffect } from 'react';
+import { fetchRestaurantData, addMenuItem, updateMenuItem, deleteMenuItem } from '../api'; 
+import Navbar from '../components/header/Navbar';
 
-const AdminProfile = () => {
-    const [newMenuItemData, setNewMenuItemData] = useState({
-        // State for new menu item data
-        // Initialize with default values or leave empty
-        name: "",
-        price: 0,
-        // Add other properties as needed
-      });
-      const dispatch = useDispatch();
+function AdminProfile() {
+  const [menuItems, setMenuItems] = useState([]);
+  const [newMenuItemData, setNewMenuItemData] = useState({
+    name: '',
+    price: '',
+    // Add other properties of your menu item here
+  });
+
+  useEffect(() => {
+    async function fetchMenuItems() {
+      try {
+        const data = await fetchRestaurantData(); // Corrected the function name here
+        setMenuItems(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching menu items:', error);
+      }
+    }
+    fetchMenuItems();
+  }, []);
 
   const handleAddMenuItem = async () => {
     try {
       const addedMenuItem = await addMenuItem(newMenuItemData);
-      toast.success("Menu Item added successfully!");
-      // Optionally, you can update state or perform any additional actions upon successful addition
+      setMenuItems([...menuItems, addedMenuItem]);
+      // Clear input fields after successful addition
+      setNewMenuItemData({
+        name: '',
+        price: '',
+      });
     } catch (error) {
-      toast.error("Error adding menu item");
+      console.error('Error adding menu item:', error);
     }
   };
 
   const handleUpdateMenuItem = async (menuItemId, updatedMenuItemData) => {
     try {
       const updatedMenuItem = await updateMenuItem(menuItemId, updatedMenuItemData);
-      toast.success("Menu Item updated successfully!");
-      // Optionally, you can update state or perform any additional actions upon successful update
+      setMenuItems(menuItems.map(item => (item.id === menuItemId ? updatedMenuItem : item)));
     } catch (error) {
-      toast.error("Error updating menu item");
+      console.error('Error updating menu item:', error);
     }
   };
 
   const handleDeleteMenuItem = async (menuItemId) => {
     try {
       await deleteMenuItem(menuItemId);
-      toast.success("Menu Item deleted successfully!");
-      // Optionally, you can update state or perform any additional actions upon successful deletion
+      setMenuItems(menuItems.filter(item => item.id !== menuItemId));
     } catch (error) {
-      toast.error("Error deleting menu item");
+      console.error('Error deleting menu item:', error);
     }
   };
+
   return (
     <>
-      <Navbar />
-      <div className="admin-profile">
-        <h1>Welcome Admin!</h1>
-        <h2>Product List</h2>
-        <div>
-          <h2>Add New Menu Item</h2>
-          <input
-            type="text"
-            placeholder="Name"
-            value={newMenuItemData.name}
-            onChange={(e) =>
-              setNewMenuItemData({ ...newMenuItemData, name: e.target.value })
-            }
-          />
-          <input
-            type="number"
-            placeholder="Price"
-            value={newMenuItemData.price}
-            onChange={(e) =>
-              setNewMenuItemData({ ...newMenuItemData, price: e.target.value })
-            }
-          />
-          {/* Add other fields for additional properties */}
-          <button onClick={handleAddMenuItem}>Add Menu Item</button>
-        </div>
-        {/* Add buttons for update and delete operations */}
-        <div>
-          <h2>Update Menu Item</h2>
-          <button onClick={() => handleUpdateMenuItem(menuItemId, updatedMenuItemData)}>
-            Update Menu Item
-          </button>
-        </div>
-        <div>
-          <h2>Delete Menu Item</h2>
-          <button onClick={() => handleDeleteMenuItem(menuItemId)}>Delete Menu Item</button>
-        </div>
+     <Navbar/>
+    <div className="admin-profile">      
+      <h1 className="admin-profile__heading">Admin Profile</h1>
+      <div className="admin-profile__add-item">
+        <h2>Add New Menu Item</h2>
+        <input
+          type="text"
+          placeholder="Name"
+          value={newMenuItemData.name}
+          onChange={e => setNewMenuItemData({ ...newMenuItemData, name: e.target.value })}
+          className="admin-profile__input"
+        />
+        <input
+          type="text"
+          placeholder="Price"
+          value={newMenuItemData.price}
+          onChange={e => setNewMenuItemData({ ...newMenuItemData, price: e.target.value })}
+          className="admin-profile__input"
+        />
+        <button onClick={handleAddMenuItem} className="admin-profile__button">Add Menu Item</button>
       </div>
+      <div className="admin-profile__menu-items">
+        <h2>Menu Items</h2>
+        <ul className="admin-profile__menu-list">
+          {menuItems.map(item => (
+            <li key={item.id} className="admin-profile__menu-item">
+              {item.name} - Price{item.price}$ - FoodType: {item.foodType} - Rating: {item.rating}
+              <div>
+               <button onClick={() => handleUpdateMenuItem(item.id, { name: 'Updated Name', price: 'Updated Price' })} className="admin-profile__button">
+                Update
+              </button>
+              <button onClick={() => handleDeleteMenuItem(item.id)} className="admin-profile__button">Delete</button>
+            </div>
+            </li>
+            
+            
+          ))}
+        </ul>
+      </div>
+    </div>
     </>
+   
   );
-};
+}
 
 export default AdminProfile;

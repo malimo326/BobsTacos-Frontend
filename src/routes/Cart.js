@@ -40,7 +40,7 @@ const Cart = ({ showNavbar } , { showTextContainer }) => {
       {!showNavbar && <Navbar />}
       {!showTextContainer && (
       <div  className="text-container">
-        <h1 className="text">Cart Section</h1>
+
         <div className="btn-container">
           <i className="fa-solid fa-arrow-left" onClick={handleclick}>Prev</i>
           <i className="fa-solid fa-arrow-right" onClick={handleOrder}>Next</i>

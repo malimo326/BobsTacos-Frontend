@@ -15,6 +15,7 @@ import { toast } from "react-hot-toast";
 import Cart from "../../routes/Cart";
 
 
+
 const ExploreSection = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const ExploreSection = () => {
     dispatch(AddCart(item));
     toast.success("Item added in cart!");
   };
+
   const renderRestaurant = (restaurant) => {
     const meetsFilters =
       restaurant.rating <= coilRating &&
@@ -93,6 +95,7 @@ const ExploreSection = () => {
       <div className="cart-container">
         <Cart showTextContainer={true} showNavbar={true} />
       </div>
+      
       <div className="collection-title">
         <div className="collection-search">
           <h1>--- BOBS TACOS MENY ---</h1>

@@ -1,6 +1,6 @@
 export async function fetchRestaurantData() {
     try {
-      const response = await fetch('https://localhost:7027/MenuItem/MenuItems');
+      const response = await fetch('https://localhost:7027/MenuItem');
       const data = await response.json();
       return data; //
     } catch (error) {
@@ -11,7 +11,7 @@ export async function fetchRestaurantData() {
 
   export async function addMenuItem(menuItemData) {
     try {
-      const response = await fetch('https://localhost:7027/MenuItem/MenuItems', {
+      const response = await fetch('https://localhost:7027/MenuItem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export async function fetchRestaurantData() {
 
   export async function updateMenuItem(menuItemId, updatedMenuItemData) {
     try {
-      const response = await fetch(`https://localhost:7027/MenuItem/MenuItems/${menuItemId}`, {
+      const response = await fetch(`https://localhost:7027/MenuItem/put/${menuItemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export async function fetchRestaurantData() {
 
   export async function deleteMenuItem(menuItemId) {
     try {
-      const response = await fetch(`https://localhost:7027/MenuItem/MenuItems/${menuItemId}`, {
+      const response = await fetch(`https://localhost:7027/MenuItem/delete/${menuItemId}`, {
         method: 'DELETE'
       });
       const data = await response.json();

@@ -9,7 +9,7 @@ import Logout from "./Logout";
 import Login from "./Login";
 import Register from "./Register";
 
-const Profile = () => {
+const Profile = ({ showNavbar }) => {
   const firstName = sessionStorage.getItem('firstName');
   const lastName = sessionStorage.getItem('lastName');
   const ID = sessionStorage.getItem('userId')
@@ -21,9 +21,12 @@ const Profile = () => {
     if (firstName && lastName) {
         return (
             <div  className="">
-                <Navbar />
+                <div className="">
+                {!showNavbar && <Navbar />}
                 <img src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" alt="profile" className="profile" />
             <h1 className="user">{firstName} {lastName} </h1>
+                </div>
+               
             <div className="wish-container">
                 <h1 className="h1-text">Your Wishlist</h1>
                 <div className="main">
@@ -55,7 +58,7 @@ const Profile = () => {
         } else {
         return (
             <>
-            <Navbar />
+             {!showNavbar && <Navbar />}
             <Login />
           
             </>

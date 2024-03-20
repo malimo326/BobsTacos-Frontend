@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/MainStyles.css';
 import { Link } from 'react-router-dom';
+import Profile from '../routes/Profile';
 
 
 const Main = (props) => {
