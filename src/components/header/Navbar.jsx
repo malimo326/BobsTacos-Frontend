@@ -26,6 +26,7 @@ const Navbar = () => {
         <li className="navbar-item">
           <Link to="/account" className="navbar-link">Profile</Link>
         </li>
+      
       </ul>
     </nav>
   );
