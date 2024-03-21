@@ -5,6 +5,7 @@ import { removeWishlist } from "../components/redux/ShoppingCart";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
+
 const Account = () => {
   const { wish } = useSelector((item) => item.user);
   const { quantity, amount } = useSelector((carts) => carts.user);
@@ -18,6 +19,7 @@ const Account = () => {
   return (
     <>
       <Navbar />
+ 
       
       <div className="profile-container">
      

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/MainStyles.css';
 import { Link } from 'react-router-dom';
+import Profile from '../routes/Profile';
 
 
 const Main = (props) => {
@@ -10,7 +11,7 @@ const Main = (props) => {
          <div className="Main-text">
            
             <Link to="/menu" className='btnclass'>
-              <a href={props.url} className={props.btnclass}>{props.buttonText}    <i class="fa-solid fa-arrow-right"></i></a>
+              <a href={props.url} className={props.btnclass}>{props.buttonText}    <i className="fa-solid fa-arrow-right"></i></a>
             </Link>
             
          </div>

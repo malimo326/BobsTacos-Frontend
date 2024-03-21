@@ -36,14 +36,14 @@ const Cart = ({ showNavbar } , { showTextContainer }) => {
     toast.success("Item Removed!");
   };
   return (
-    <div>
+    <div className="container-cart">
       {!showNavbar && <Navbar />}
-      {showTextContainer && (
+      {!showTextContainer && (
       <div  className="text-container">
-        <h1 className="text">Cart Section</h1>
+
         <div className="btn-container">
           <i className="fa-solid fa-arrow-left" onClick={handleclick}>Prev</i>
-          <i class="fa-solid fa-arrow-right" onClick={handleOrder}>Next</i>
+          <i className="fa-solid fa-arrow-right" onClick={handleOrder}>Next</i>
         </div>
       </div>)}
       {cart.length === 0 ? (

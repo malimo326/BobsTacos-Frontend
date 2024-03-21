@@ -33,7 +33,7 @@
     align-items: start;
     justify-content: space-between;
     border: 1px solid var(--filter-text);
-    width: 75%;
+    width: 80%;
     padding: 12px;
     margin: auto;
 }
@@ -56,10 +56,15 @@
     font-size: 20px;
     margin-top: 25px;
 }
+.container-cart{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(126, 126, 116);
+}
 .text-container{
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 2px;
     width: 80%;
     margin: auto;
     border-radius: 10px;
@@ -204,7 +209,7 @@
     align-items: center;
     justify-content: center;
     width: 40%;
-    background-color: rgb(17, 16, 14);
+    background-color: rgb(88, 88, 81);
 }
 .payment{
     padding: 12px;
@@ -314,7 +319,7 @@
     padding: 25px;
 }
 .collected-item{
-background-color: rgb(24, 21, 17);
+    background-color: rgb(126, 126, 116);
     height: 80vh;
 }
 .item-in-order{
@@ -388,3 +393,143 @@ background-color: rgb(24, 21, 17);
     background-color: green;
     cursor: pointer;
 }
+.btn-logout {
+    background-color: #ff6347; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background-color: #d63424; /* Darker Red on hover */
+  }
+  .profile_container{
+
+    background-color: lightblue;
+    text-align: center;
+    line-height: 100px;
+
+  }
+  .profile_parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* adminProfile.css */
+
+.admin-profile {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  width: 50%;
+}
+
+.admin-profile__heading {
+  margin-bottom: 20px;
+}
+
+.admin-profile__add-item,
+.admin-profile__menu-items {
+  margin-bottom: 30px;
+}
+
+.admin-profile__input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.admin-profile__button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.admin-profile__button:hover {
+  background-color: #0056b3;
+}
+
+.admin-profile__menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-profile__menu-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.admin-profile__menu-item button {
+  margin-left: 10px;
+}
+
+.admin-profile__menu-item button:first-child {
+  margin-left: 0;
+}
+
+
+
+/* login.css */
+
+.row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .errmsg {
+    color: red;
+  }
+  
+  .btn-primary,
+  .btn-success {
+    width: 48%;
+  }
+  
+  .card-footer {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-footer span {
+    margin-right: 10px;
+  }
+  

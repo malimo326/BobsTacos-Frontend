@@ -15,6 +15,7 @@ import { toast } from "react-hot-toast";
 import Cart from "../../routes/Cart";
 
 
+
 const ExploreSection = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const ExploreSection = () => {
     dispatch(AddCart(item));
     toast.success("Item added in cart!");
   };
+
   const renderRestaurant = (restaurant) => {
     const meetsFilters =
       restaurant.rating <= coilRating &&
@@ -59,8 +61,8 @@ const ExploreSection = () => {
             </Link>
             {restaurant.deliveryTime <= coilTime && (
               <div className="delivery-time">{restaurant.deliveryTime + "min"}
-                    <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}>Favorite</button>
-          <button className="add-to-wishlist-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
+                    <button className="add-to-wishlist-btn" onClick={() => addToWish(restaurant)}><i className="fi fi-rr-star absolute-center"></i></button>
+          <button className="add-to-cart-btn" onClick={() => addToCart(restaurant)}>Add to Cart</button>
               </div>
               
             )}
@@ -91,8 +93,9 @@ const ExploreSection = () => {
   return (
     <div className="max-width explore-section">
       <div className="cart-container">
-        <Cart showNavbar={true} showTextContainer={false}/>
+        <Cart showTextContainer={true} showNavbar={true} />
       </div>
+      
       <div className="collection-title">
         <div className="collection-search">
           <h1>--- BOBS TACOS MENY ---</h1>

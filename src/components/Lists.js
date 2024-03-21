@@ -1,3 +1,8 @@
+import { fetchRestaurantData } from "../api";
+export const restaurant = await fetchRestaurantData();
+
+
+/*
 export const restaurant = [
     {
         "id": 1,
@@ -65,7 +70,7 @@ export const restaurant = [
         "name": "Breakfast  Burrito",
         "price": 5,
         "rating": 4,
-        "image": "https://wallpaperaccess.com/full/4518250.jpg",
+        "image": "https://wallpaperaccess.com/thumb/2851613.jpg",
         "deliveryTime" : 15,
         "description": "Start your day right with our Breakfast Plates, a symphony of morning flavors that awaken your palate. From hearty classics to innovative creations, each plate offers a delicious journey to kickstart your day with energy and enthusiasm."
     },
@@ -151,3 +156,4 @@ export const restaurant = [
     }
    
 ]
+*/
