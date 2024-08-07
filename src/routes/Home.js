@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Navbar/>
       <Main 
-        MainImg= "https://bobstacos.com/wp-content/uploads/2016/08/logo-white-shadow-004.png"
+        MainImg= "https://res.cloudinary.com/dirdtvxdq/image/upload/v1714045295/samples/imagecon-group.jpg"
         title="BOBS TACOS!!"
         text="Dear BOBS TACOS is a online web app where you can find your tasty food easily!"
         buttonText="Order Online"

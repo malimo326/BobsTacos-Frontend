@@ -1,8 +1,10 @@
+
 import { fetchRestaurantData } from "../api";
-export const restaurant = await fetchRestaurantData();
-
-
 /*
+export const restaurant = await fetchRestaurantData();
+*/
+
+
 export const restaurant = [
     {
         "id": 1,
@@ -156,4 +158,6 @@ export const restaurant = [
     }
    
 ]
-*/
+
+
+export default restaurant;
